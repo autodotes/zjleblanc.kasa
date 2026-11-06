@@ -2,6 +2,8 @@
 
 The kasa collection contains modules for automating [Kasa Smart](https://www.kasasmart.com/) devices.
 
+[Galaxy](https://galaxy.ansible.com/ui/repo/published/zjleblanc/kasa/) | [Changelog](CHANGELOG.md)
+
 ## Content
 
 ### Modules
@@ -64,7 +66,7 @@ Examples:
 
     - name: Turn off known smart devices
       zjleblanc.kasa.smart_device:
-        target: 
+        target:
             - 192.168.0.100
             - 192.168.0.101
             - 192.168.0.102
@@ -119,7 +121,7 @@ Examples:
 
     - name: Turn off known smart dimmers
       zjleblanc.kasa.smart_dimmer:
-        target: 
+        target:
             - 192.168.0.100
             - 192.168.0.101
             - 192.168.0.102

@@ -92,9 +92,9 @@ async def run_module():
         module.exit_json(**result)
 
     found_devices = await Discover.discover(
-        target=module.params['target'], 
-        on_discovered=None, timeout=module.params['timeout'], 
-        discovery_packets=module.params['discovery_packets'], 
+        target=module.params['target'],
+        on_discovered=None, timeout=module.params['timeout'],
+        discovery_packets=module.params['discovery_packets'],
         interface=module.params['interface']
     )
     smart_devices = [dev[1] for dev in found_devices.items()]

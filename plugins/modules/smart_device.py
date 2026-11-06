@@ -55,10 +55,10 @@ EXAMPLES = r'''
 
 - name: Get smart devices info
   zjleblanc.kasa.smart_device:
-    target: 
-        - 192.168.0.100
-        - 192.168.0.101
-        - 192.168.0.102
+    target:
+      - 192.168.0.100
+      - 192.168.0.101
+      - 192.168.0.102
 
 - name: Set smart device alias
   zjleblanc.kasa.smart_device:
@@ -72,10 +72,10 @@ EXAMPLES = r'''
 
 - name: Turn smart devices off
   zjleblanc.kasa.smart_device:
-    target: 
-        - 192.168.0.100
-        - 192.168.0.101
-        - 192.168.0.102
+    target:
+      - 192.168.0.100
+      - 192.168.0.101
+      - 192.168.0.102
     state: disabled
 '''
 
@@ -112,7 +112,7 @@ async def run_module():
 
     alias = module.params['alias']
     state = module.params['state']
-    mac = module.params['mac'] 
+    mac = module.params['mac']
     targets = module.params['target']
 
     if not len(targets):
@@ -150,7 +150,7 @@ async def run_module():
                 await smart_device.turn_on()
             elif state == 'disabled':
                 await smart_device.turn_off()
-        
+
         await smart_device.update()
         current_state = get_device_info(smart_device)
         result['smart_devices'][smart_device.host] = current_state

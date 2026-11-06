@@ -1,0 +1,16 @@
+---
+exclude_paths:
+  - .cursor/
+  - .github/
+  - .pre-commit-config.yaml
+  - .yamllint
+
+skip_list:
+  - galaxy[version]
+  - schema[galaxy]
+
+# Example playbook targets "{{ bastion }}", which is supplied at runtime.
+extra_vars:
+  bastion: localhost
+
+offline: true

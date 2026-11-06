@@ -1,26 +1,37 @@
+# yaml-language-server: $schema=none
 namespace: zjleblanc
 name: kasa
-version: 1.1.0
-
-authors:
-- Zach LeBlanc <zjleblanc3@gmail.com>
-description: Kasa Smart Device Home Automation
+version: 0.0.0-semantic-version
 readme: README.md
+authors:
+  - Zach LeBlanc <zjleblanc3@gmail.com>
 
+description: Kasa Smart Device Home Automation
 license_file: LICENSE
 
 tags:
   - kasa
   - smart_device
   - home_automation
-
-repository: https://github.com/zjleblanc/zjleblanc.kasa
-documentation: https://github.com/zjleblanc/zjleblanc.kasa/blob/master/README.md
-homepage: https://github.com/zjleblanc/zjleblanc.kasa
-issues: https://github.com/zjleblanc/zjleblanc.kasa/issues
+  - tools
 
 dependencies: {}
-build_ignore:
-  - .venv
-  - .gitignore
 
+repository: https://github.com/autodotes/zjleblanc.kasa
+documentation: https://github.com/autodotes/zjleblanc.kasa/blob/master/README.md
+homepage: https://github.com/autodotes/zjleblanc.kasa
+issues: https://github.com/autodotes/zjleblanc.kasa/issues
+
+build_ignore:
+  - .ansible-lint
+  - .cursor
+  - .github
+  - .gitignore
+  - .pre-commit-config.yaml
+  - .venv
+  - .yamllint
+  - ansible.cfg
+  - collections
+  - docs
+  - pyproject.toml
+  - tests

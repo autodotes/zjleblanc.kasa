@@ -75,10 +75,10 @@ EXAMPLES = r'''
 
 - name: Turn smart dimmers off
   zjleblanc.kasa.smart_dimmer:
-    target: 
-        - 192.168.0.100
-        - 192.168.0.101
-        - 192.168.0.102
+    target:
+      - 192.168.0.100
+      - 192.168.0.101
+      - 192.168.0.102
     state: disabled
     transition: 100
 '''
@@ -118,7 +118,7 @@ async def run_module():
 
     alias = module.params['alias']
     state = module.params['state']
-    mac = module.params['mac'] 
+    mac = module.params['mac']
     targets = module.params['target']
     brightness = module.params['brightness']
     transition = module.params['transition']
@@ -162,7 +162,7 @@ async def run_module():
                 await smart_dimmer.turn_on(transition=transition)
             elif state == 'disabled':
                 await smart_dimmer.turn_off(transition=transition)
-        
+
         await smart_dimmer.update()
         current_state = get_dimmer_info(smart_dimmer)
         result['smart_dimmers'][smart_dimmer.host] = current_state
