@@ -2,7 +2,6 @@
 - name: Manage Kasa devices
   hosts: "{{ bastion }}"
   gather_facts: false
-
   tasks:
     - name: Assert target devices defined
       ansible.builtin.assert:
@@ -14,16 +13,16 @@
 
     - name: Manage devices
       block:
-        - name: "Set smart device | {{ desired_state_desc[desired_state] }}"
+        - name: Set smart device | {{ desired_state_desc[desired_state] }}
+          zjleblanc.kasa.smart_device:
+            # see filter plugin in ../plugins/filter/kasa.py
+            target: "{{ r_discovery.smart_devices | zjleblanc.kasa.kasa_host(device.name) }}"
+            state: "{{ device.state }}"
           loop: "{{ kasa_devices }}"
           loop_control:
             loop_var: device
             label: "{{ device.name }}-{{ device.state }}"
           register: r_managed_devices
-          zjleblanc.kasa.smart_device:
-            # see filter plugin in ../plugins/filter/kasa.py
-            target: "{{ r_discovery.smart_devices | zjleblanc.kasa.kasa_host(device.name) }}"
-            state: "{{ device.state }}"
 
         - name: Display device state(s)
           ansible.builtin.debug:
@@ -31,4 +30,4 @@
       rescue:
         - name: Fail gracefully
           ansible.builtin.debug:
-            msg: "Failed to manage regular devices"
+            msg: Failed to manage regular devices
