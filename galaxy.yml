@@ -1,6 +1,6 @@
 ---
 # yaml-language-server: $schema=none
-name: Kasa
+name: kasa
 namespace: zjleblanc
 tags:
   - kasa
