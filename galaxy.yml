@@ -1,7 +1,7 @@
 ---
 # yaml-language-server: $schema=none
-name: kasa
 namespace: zjleblanc
+name: kasa
 tags:
   - kasa
   - smart_device
